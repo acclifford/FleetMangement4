@@ -37,7 +37,6 @@ public class Boat implements Serializable {
         this.purchasePrice = purchasePrice;
         expenses = 0;
     }
-
     //-----------------------------------------------------------------------
     public String toString() {
 
