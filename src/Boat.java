@@ -1,4 +1,6 @@
-public class Boat {
+import java.io.Serializable;
+
+public class Boat implements Serializable {
     //-----------------------------------------------------------------------
     public enum type{POWER,SAILING};
 

@@ -59,14 +59,13 @@ public class FleetManagement {
     //-----------------------------------------------------------------------
     public static void writeFleetObjectFile(ArrayList<Boat>fleet){
 
+        //--This method writes and exports a db file at the end of the program
         File newFleetData = new File("C:\\Users\\Ailis\\Desktop\\CSC120_LAB\\FleetData.db");
-
-        ObjectOutputStream writeObject = null;
-
+        int index;
         try{
-            writeObject = new ObjectOutputStream(new FileOutputStream(newFleetData));
-            for(Boat newBoat:fleet){
-                writeObject.writeObject(newBoat);
+            ObjectOutputStream writeObject = new ObjectOutputStream(new FileOutputStream(newFleetData));
+            for(index = ZERO; index < fleet.size(); index++){
+                writeObject.writeObject(fleet.get(index));
             }
             writeObject.close();
         } catch(IOException e){
