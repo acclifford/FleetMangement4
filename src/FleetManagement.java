@@ -311,7 +311,8 @@ public class FleetManagement {
             //--This if else statement either accepts or denies the expense based on if there is money left to spend
             if(subtractFromPurchasePrice > amountToSpend){
                 fleet.get(boatIndex - 1).setExpenses(amountToSpend);
-                System.out.println("Expense authorized, $" + fleet.get(boatIndex - 1).getExpenses() + " spent.");
+                System.out.printf("Expense authorized, $%.2f", fleet.get(boatIndex - 1).getExpenses());
+                System.out.println(" spent.");
                 System.out.println("");
             }
             else{
