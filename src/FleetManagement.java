@@ -25,6 +25,9 @@ public class FleetManagement {
         //--This calls the menu and will run through the menu until "exit" is selected
         menu(fleet);
 
+        //--This calls a writing file to export a file of our data
+        writeFleetObjectFile(fleet);
+
     }
     //-----------------------------------------------------------------------
 
@@ -51,6 +54,26 @@ public class FleetManagement {
         }
         //--Returning the fleet ArrayList of Boat objects created
         return(fleet);
+    }
+
+    //-----------------------------------------------------------------------
+    public static void writeFleetObjectFile(ArrayList<Boat>fleet){
+
+        File newFleetData = new File("C:\\Users\\Ailis\\Desktop\\CSC120_LAB\\FleetData.db");
+
+        ObjectOutputStream writeObject = null;
+
+        try{
+            writeObject = new ObjectOutputStream(new FileOutputStream(newFleetData));
+            for(Boat newBoat:fleet){
+                writeObject.writeObject(newBoat);
+            }
+            writeObject.close();
+        } catch(IOException e){
+            e.printStackTrace();
+            System.out.println("ERROR saving " + e.getMessage());
+        }
+
     }
     //-----------------------------------------------------------------------
     public static Boat createBoat(String[] attributes){
